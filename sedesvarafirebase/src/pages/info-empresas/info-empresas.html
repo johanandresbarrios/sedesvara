@@ -1,0 +1,68 @@
+<ion-header>
+    <ion-navbar>
+      <button ion-button menuToggle>
+        <ion-icon name="menu" class="menu">
+        </ion-icon>
+      </button>
+      <ion-title style="text-align:center;">
+        <img class="logoSuperior" src="assets/imgs/seDesvaraTexto.png">
+      </ion-title>
+    </ion-navbar>
+  </ion-header>
+
+<ion-content padding>
+    <div id="banner">
+      <ion-list style="margin:0; width: 100% !important; padding:  0 !important;">
+        <ion-item style="margin:0; padding: 0; width: 100% !important;">
+            <div (click)="getPublicidadInfo(idPublicidad);" id="{{idPublicidad}}" style="width: 100%; width: 100% !important; text-align: center"><img src="{{urlPublicidad}}"></div>
+        </ion-item>
+      </ion-list>
+  </div>
+    <ion-grid style="overflow: overlay;">
+        <ion-row class="infoEmpresaDiv">
+            <ion-col col-11>
+                <ion-label style="color: #26668c; font-size: 1.4em;margin:0;">{{nombre}}</ion-label>
+                <ion-grid>
+                    <ion-row>
+                        <ion-col col-4 class="infoEmpresaDiv" style="height: 6em; display: inherit;">
+                            <img src="{{imagen}}"/>  
+                        </ion-col>
+                        <ion-col col-8>
+                            <ion-label class="textoCaracterEmpresa">Teléfono: {{telefono}}</ion-label>
+                            <ion-label class="textoCaracterEmpresa">Dirección: {{direccion}}</ion-label>
+                            <ion-label class="textoCaracterEmpresa">Servicios: {{servicios}}</ion-label>
+                            <div class="redesEmpresa">
+                                <a *ngFor="let red of redesEmpresaT;" href="{{red.url}}"><img src="{{red.img}}"/></a>
+                            </div>
+                        </ion-col>
+                      </ion-row>
+                </ion-grid>  
+            </ion-col>
+            <ion-col col-1>
+                <a *ngFor="let tipNeg of tipoNegocioEst;"><img src="{{tipNeg.img}}"/></a>
+            </ion-col>
+            <ion-col col-12 *ngIf="showServiciosAdicionales">
+                <ion-grid>
+                    <ion-label style="margin-bottom:1em;" class="textoCaracterEmpresa">Servicios Adicionales</ion-label>
+                    <ion-row>
+                        <ion-col col-3 class="infoEmpresaDiv" *ngFor="let imgEst of imagenesEstablecimiento;" tappable (click)="mostrarFotos()" style="height: 6em; display: inherit;">
+                            <img src="{{imgEst.img}}"/>  
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+            </ion-col>
+          </ion-row>
+    </ion-grid>
+    <!--ion-slides *ngIf="showCarrousel" class="carrousel">
+        <ion-slide *ngFor="let imgEst of imagenesEstablecimiento;" class="slide">
+            <ion-icon  class="cerrarCarruselas" name="close" tappable (click)='cerrarCarrusel();'></ion-icon>
+            <img src="{{imgEst.img}}">
+        </ion-slide>
+    </ion-slides-->
+    <ion-slides *ngIf="slidesPub" class="carrouselPublicidad">
+        <ion-slide *ngFor="let srv of slidesPublicidad" class="slidePublicidad">
+            <ion-icon class="cerrarCarruselas" name="close" tappable (click)='cerrarCarruselPub();'></ion-icon>
+            <img style="width: 100% !important; margin: 0;" src="{{srv.src}}">
+        </ion-slide>
+    </ion-slides>
+</ion-content>

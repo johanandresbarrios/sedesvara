@@ -1,0 +1,129 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu" class="menu">
+      </ion-icon>
+    </button>
+    <ion-title style="text-align:center;">
+      <img class="logoSuperior" src="assets/imgs/seDesvaraTexto.png">
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <!--div >
+      <div class="filtro" (click)="cerrar(true);"> <button  (click)='registro();' class="boton">Paute con nosotros</button> <ion-icon name="switch" style="font-size: 3em; position: absolute; left: 25%; bottom: 5%;"></ion-icon></div>
+  </div-->
+    
+  <div id="banner">
+      <ion-list style="margin:0; width: 100% !important; padding:  0 !important;">
+        <ion-item style="margin:0; padding: 0; width: 100% !important;">
+            <div (click)="getPublicidadInfo(idPublicidad);" id="{{idPublicidad}}" style="width: 100%; width: 100% !important; text-align: center"><img src="{{urlPublicidad}}"></div>
+        </ion-item>
+      </ion-list>
+  </div>
+  <div #map id="map"></div>
+  <ion-icon *ngIf="true" style="position: absolute;right: 14px;top:4em; cursor:pointer;margin-top: 0.2em;font-size: 2em;color: black;" name="locate" (click)='ubicarPosicionEnMapa();'></ion-icon>
+  <ion-grid *ngIf="buscar">
+    <ion-row>
+      <ion-col col-6>
+          <ion-input [(ngModel)]="textSearch" (keypress)="buscarEstablecimientos($event)" class="slide-in-both-ways buscarTexto"></ion-input>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-grid>
+      <ion-row>
+        <ion-col col-3 class="filtroPais" tappable (click)="mostrarBuscar();" style="height: 3.5em; display: inherit;">
+            <ion-icon name="search" style="font-size: 2em; position: absolute; left: 30%; bottom: 20%;"></ion-icon>
+        </ion-col>
+        <ion-col col-6>
+            <a style="text-align: center;" href="http://www.sedesvara.com/asesor1.php" class="boton">Paute con nosotros</a>
+        </ion-col>
+        <ion-col col-3 class="filtro" tappable (click)="cerrar(true);" style="height: 3.5em; display: inherit;">
+            <ion-icon name="options" style="font-size: 2.2em; position: absolute; left: 20%; bottom: 15%;"></ion-icon>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+  <div *ngIf="showServicios" class="servicios">  
+
+    <ion-grid *ngIf="showTipoTransporte">
+      <ion-row>
+        <ion-col col-6 tappable (click)="tipoTransporte('TRANSPESADO');">
+          <img class="imgServicio" id="imgRunapp"  src="assets/imgs/icons/iconcamiones.png">
+          <h4 class="tituloServicio">Transporte Pesado</h4>
+        </ion-col>
+        <ion-col col-6 tappable (click)="tipoTransporte('AUTOMOVILES');">
+          <img class="imgServicio" id="imgEnvio" src="assets/imgs/icons/iconautomoviles.png">
+          <h4 class="tituloServicio">Automoviles</h4>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-6 tappable (click)="tipoTransporte('MOTOS');">
+          <img class="imgServicio" id="imgTiempo" src="assets/imgs/icons/iconmotos.png">
+          <h4 class="tituloServicio">Motocicletas</h4>
+        </ion-col>
+        <ion-col col-6 tappable (click)="tipoTransporte('ELECTRICAS');">
+          <img class="imgServicio" id="imgTiempo" src="assets/imgs/icons/iconelectricas.png">
+          <h4 class="tituloServicio">Electricas</h4>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-grid *ngIf="showTipoServicios">
+      <ion-row>
+        <ion-col col-6 tappable (click)="tipoEstablecimiento('TALLER');">
+          <img src="assets/imgs/icons/icontalleres.png">
+          <h4 class="tituloServicio">Talleres</h4>
+        </ion-col>
+        <ion-col col-6 tappable (click)="tipoEstablecimiento('CONCESIONARIOS');">
+          <img src="assets/imgs/icons/iconconcesionario.png">
+          <h4 class="tituloServicio">Concesionarios</h4>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-6 tappable (click)="tipoEstablecimiento('ALMACEN');">
+          <img src="assets/imgs/icons/iconalmacenes.png">
+          <h4 class="tituloServicio">Almacenes</h4>
+        </ion-col>
+        <ion-col col-6 tappable (click)="tipoEstablecimiento('OTROS SERVICIOS');">
+          <img src="assets/imgs/icons/iconservicios.png">
+          <h4 class="tituloServicio">Otros Servicios</h4>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+  <div *ngIf="ciudadesSel" class="servicios">
+    <ion-grid>
+      <ion-row style="text-align:center; width: 100%;">
+        <ion-col col-12>
+            <ion-list>
+              <ion-item style="border-bottom: 1px solid #4d87c0; margin: 0; cursor: pointer; background-color: #4d87c0;">
+                  <div tappable (click)="ubicarPosicionEnMapa();" style="width: 100%; text-align: center;"><h6 style="font-weight: lighter; font-size: 1em; display:inline-block; color:white !important;"><a style="color:white !important;">Utilizar Ubicación Actual</a></h6></div>
+              </ion-item>
+            </ion-list>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <h4 class="tituloServicio" style="background-color: white;">Realiza la busqueda de establecimientos en otras ciudades.</h4>
+      </ion-row>
+      <ion-row>
+          <ion-col col-12>
+              <ion-list *ngFor="let srv of ciudades | async" style="margin:0;">
+                <ion-item style="border-bottom: 1px solid #4d87c0; margin: 0; cursor: pointer;">
+                    <div tappable (click)="ubicarPosicionCiudad(srv.latitud, srv.longitud); ObtenerEstablecimientos(srv.Nombre, '', '')" style="width: 100%; text-align: center"><h6 style="font-weight: lighter; font-size: 1em; display:inline-block"><a>{{srv.Nombre}}</a></h6></div>
+                </ion-item>
+              </ion-list>
+          </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+  <ion-slides *ngIf="slidesPub" class="carrouselPublicidad">
+    <ion-slide *ngFor="let srv of slidesPublicidad" class="slidePublicidad">
+        <ion-icon class="cerrarCarruselas" name="close" tappable (click)='cerrarCarrusel();'></ion-icon>
+        <img style="width: 100% !important; margin: 0;" src="{{srv.src}}">
+    </ion-slide>
+  </ion-slides>
+</ion-content>

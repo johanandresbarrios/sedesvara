@@ -1,0 +1,12 @@
+<ion-menu [content]= "NAV">
+    <ion-content>
+        <ion-list>
+            <img style="max-width: 25%;margin: 1em;border: 0; left: 35%; position: sticky;" src="assets/imgs/sedesvara-logo-grande.png">
+            <button ion-item *ngFor="let page of pages" tappable (click)="goToPage(page.component)" menuClose>
+                <ion-icon name="{{page.icon}}" item-start></ion-icon> 
+                {{page.titulo}}
+            </button>
+        </ion-list>
+    </ion-content>
+</ion-menu>
+<ion-nav #NAV [root]="rootPage"></ion-nav>

@@ -1,0 +1,90 @@
+page-info-empresas {
+    .divSuperior {
+        width: 100%;
+    }
+
+    .redesEmpresa {
+        position: absolute;
+        width: 60%;
+        height: 40px;
+        margin-top: 1em;
+    }
+
+    .slide{
+        background-color: black;
+    }
+
+    .cerrarCarruselas{
+        position: absolute;
+        right: 14px;
+        top: 0.5em;
+        cursor: pointer;
+        margin-top: 0.2em;
+        font-size: 2em;
+        color: white;
+        z-index: 99;
+    }
+
+    .carrousel{
+        display: block;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+    }
+    
+    .redesEmpresa img {
+        width: 20%;
+        position: relative;
+        left: 0;
+    }
+
+    .infoEmpresaDiv {
+        border: 1px solid #26668c;
+        margin-bottom: 1em;
+    }
+
+    .textoCaracterEmpresa{
+        color: #26668c;
+        font-size: 80%;
+        margin: 0;
+        height: 1.4em;
+        width: 100%;
+        text-overflow: clip;
+        overflow-x: scroll;
+        white-space: nowrap;
+    }
+    
+    .label-md {
+        margin: 0 !important; 
+   }
+
+   .item-md.item-block .item-inner{
+       padding-right: 0px; 
+   }
+
+   .slidePublicidad{
+        background-color: black;
+    }
+
+    .carrouselPublicidad{
+        display: block !important;
+        width: 100% !important;
+        height: 100% !important;
+        position: absolute !important;
+        top: 0 !important;
+        margin: 0 !important;
+    }
+
+    .cerrarCarruselas{
+        position: absolute;
+        right: 14px;
+        top: 0.5em;
+        cursor: pointer;
+        margin-top: 0.2em;
+        font-size: 2em;
+        color: white;
+        z-index: 99;
+    }
+    
+}

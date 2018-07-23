@@ -1,0 +1,31 @@
+<!--
+  Generated template for the PaginaInicioPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+
+
+<ion-content class="contenido" padding>
+
+    <img src="assets/imgs/seDesvaraTexto.png"/>
+    <div style="margin-top: 50%;">
+      <ion-item >
+        <ion-input class="registroTexto" type="text" placeholder="Nombre y Apellido" [(ngModel)]="nombre" name="nombre"  required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input class="registroTexto" type="email" placeholder="Correo Electronico" [(ngModel)]="email" name="email"  required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input class="registroTexto" type="number" placeholder="Teléfono" [(ngModel)]="telefono" name="telefono"  required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label style="color: #26668c; text-align:center; font-size: 1.1em;">Aceptar términos y condiciones.</ion-label>
+        <ion-checkbox color="#26668c;" checked="true"></ion-checkbox>
+      </ion-item>
+
+      <button  (click)='saveUserName_Password();' class="boton">Ingresar</button>
+    </div>
+  </ion-content>

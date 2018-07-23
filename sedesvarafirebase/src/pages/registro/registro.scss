@@ -1,0 +1,45 @@
+page-registro {
+    .contenido {
+        background-image: url('../assets/imgs/background-SeDesvara.png');
+    }
+
+    .contenido img {
+        max-width: 90%;
+        position: absolute;
+        left: 10%;
+        top: 15%;
+    }
+
+    .registroTexto {
+        border: 1px solid #26668c;
+        border-radius: 18px;
+        margin-bottom: 0.4em;
+    }
+
+    .redes {
+        position: absolute;
+        margin-top: 6em;
+        width: 50%;
+        height: 55px;
+        margin-left: 25%;
+    }
+
+    .redes img {
+        width: 20%;
+        position: relative;
+        left: 0;
+    }
+
+    .boton{
+        background-color: white;
+        border: solid 1px #26668c;
+        color: #ff5200;
+        border-radius: 15px;
+        position: absolute;
+        left: 25%;
+        width: 50%;
+        height: 2.3em;
+        font-size: 1.5em;
+        margin-top: 1em;
+    }
+}
